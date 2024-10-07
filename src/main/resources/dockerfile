@@ -1,0 +1,14 @@
+# Start with a base image
+FROM openjdk:17-jdk-alpine
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the application JAR to the container
+COPY target/gestionStock.jar gestionStock.jar
+
+# Expose the port that the application listens on
+EXPOSE 8080
+
+# Set the entry point to run the application
+ENTRYPOINT ["java", "-jar", "gestionStock.jar"]
